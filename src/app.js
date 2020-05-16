@@ -9,7 +9,7 @@ const forecast = require('../utils/forecast');
 //console.log(__filename);
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; //heroku or local
 
 // Define paths for Express config
 const publicDirPath = path.join(__dirname, '../public');
@@ -133,4 +133,4 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(port, () => console.log(`Web server listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Web server is up on ${port}`));
